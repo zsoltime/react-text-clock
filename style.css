@@ -1,0 +1,57 @@
+* {
+  box-sizing: inherit;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  background-color: #01579b;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Source Code Pro", Menlo, Courier, monospace;
+  font-weight: 300;
+  line-height: 1.6rem;
+  margin: 0;
+}
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1rem;
+  max-width: 400px;
+  width: 80vw;
+}
+
+.clock {
+  color: rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+.clock__hour,
+.clock__minute,
+.clock__second {
+  display: flex;
+  flex-wrap: wrap;
+}
+.clock__hour {
+  font-size: 1.5rem;
+}
+.clock__second {
+  font-size: 0.667rem;
+}
+
+.active {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 16px #fff;
+}
