@@ -34,7 +34,7 @@ const renderSixty = (current) => {
       key={n}
       className={(n * 1) === (Math.floor(current / 10) * 10) ? 'active' : ''}
     >{firstDigits[n]}</span>
-  );
+  ));
 
   const renderLastDigits = Object.keys(lastDigits).map(n => {
     const lastDigit = current > 19 ? current % 10 : current;
@@ -83,9 +83,9 @@ const Clock = ({ hour, minute, second }) => {
 };
 
 Clock.propTypes = {
-  hour: React.PropTypes.number.isRequired.
-  minute: React.PropTypes.number.isRequired.
-  second: React.PropTypes.number.isRequired.
+  hour: React.PropTypes.number.isRequired,
+  minute: React.PropTypes.number.isRequired,
+  second: React.PropTypes.number.isRequired,
 };
 
 class App extends React.Component {
