@@ -23,11 +23,11 @@ const renderOneToTwelve = (current) => {
   };
 
   return Object.keys(digits)
-    .map(n => (
+    .map(key => (
       <span
-        key={n}
-        className={(n * 1) === current ? 'active' : ''}
-      >{digits[n]}</span>
+        key={key}
+        className={+key === current ? 'active' : ''}
+      >{digits[key]}</span>
     ));
 };
 
@@ -63,21 +63,21 @@ const renderOhToSixty = (current) => {
   };
 
   const renderFirstDigits = Object.keys(firstDigits)
-    .map(n => (
+    .map(key => (
       <span
-        key={n}
-        className={(n * 1) === (Math.floor(current / 10) * 10) ? 'active' : ''}
-      >{firstDigits[n]}</span>
+        key={key}
+        className={+key === (Math.floor(current / 10) * 10) ? 'active' : ''}
+      >{firstDigits[key]}</span>
     ));
 
   const renderLastDigits = Object.keys(lastDigits)
-    .map(n => {
+    .map(key => {
       const lastDigit = current > 19 ? current % 10 : current;
       return (
         <span
-          key={n}
-          className={(n * 1) === lastDigit ? 'active' : ''}
-        >{lastDigits[n]}</span>
+          key={key}
+          className={+key === lastDigit ? 'active' : ''}
+        >{lastDigits[key]}</span>
       );
     });
 
@@ -144,9 +144,11 @@ class App extends React.Component {
     };
     this.toggleSettings = this.toggleSettings.bind(this);
     this.setTheme = this.setTheme.bind(this);
+    this.tick = this.tick.bind(this);
   }
   componentDidMount() {
-    this.intervalId = setInterval(() => this.tick(), 1000);
+    this.tick();
+    this.intervalId = setInterval(this.tick, 1000);
   }
   componentDidUpdate() {
     document.body.className = `theme-${this.state.theme}`;
